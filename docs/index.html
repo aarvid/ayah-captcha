@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html> 
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <title>AYAH-CAPTCHA - Are-You-A-Human Captcha Interface Library</title>
+  <style type="text/css">
+  pre { padding:5px; background-color:#e0e0e0 }
+  h3, h4 { text-decoration: underline; }
+  a { text-decoration: none; padding: 1px 2px 1px 2px; }
+  a:visited { text-decoration: none; padding: 1px 2px 1px 2px; }
+  a:hover { text-decoration: none; padding: 1px 1px 1px 1px; border: 1px solid #000000; } 
+  a:focus { text-decoration: none; padding: 1px 2px 1px 2px; border: none; }
+  a.none { text-decoration: none; padding: 0; }
+  a.none:visited { text-decoration: none; padding: 0; } 
+  a.none:hover { text-decoration: none; border: none; padding: 0; } 
+  a.none:focus { text-decoration: none; border: none; padding: 0; } 
+  a.noborder { text-decoration: none; padding: 0; } 
+  a.noborder:visited { text-decoration: none; padding: 0; } 
+  a.noborder:hover { text-decoration: none; border: none; padding: 0; } 
+  a.noborder:focus { text-decoration: none; border: none; padding: 0; }  
+  pre.none { padding:5px; background-color:#ffffff }
+  </style>
+</head>
+
+<body bgcolor=white>
+
+<h2> AYAH-Are-You-A-Human Captcha Interface Library</h2>
+
+<blockquote>
+<br>&nbsp;<br><h3><a name=abstract class=none>Abstract</a></h3>
+
+<p>
+A simple interface to the API of the play-thru captcha of areYouAHuman.com.
+</p>
+
+The code comes with
+a <a
+href="http://www.opensource.org/licenses/mit-license.php">MIT-style
+license</a> so you can basically do with it whatever you want.
+
+<p>
+<font color=red>Download shortcut:</font> <a href="https://github.com/aarvid/ayah-captcha">https://github.com/aarvid/ayah-captcha</a>.
+</blockquote>
+
+<br>&nbsp;<br><h3><a class=none name="contents">Contents</a></h3>
+<ol>
+  <li><a href="#download">Download</a>
+  <li><a href="#dictionary">The AYAH-CAPTCHA dictionary</a>
+    <ol>
+      <li><a href="#*publisher-key*"><code>*publisher-key*</code></a>
+      <li><a href="#*scoring-key*"><code>*scoring-key*</code></a>
+      <li><a href="#*web-service-host*"><code>*web-service-host*</code></a>
+      <li><a href="#human-p"><code>human-p</code></a>
+      <li><a href="#publisher-html"><code>publisher-html</code></a>
+      <li><a href="#record-conversation-html"><code>record-conversation-html</code></a>
+    </ol>
+  <li><a href="#ack">Acknowledgements</a>
+</ol>
+
+<br>&nbsp;<br><h3><a class=none name="download">Download</a></h3>
+
+AYAH-CAPTCHA together with this documentation can be downloaded from <a href="https://github.com/aarvid/ayah-captcha">https://github.com/aarvid/ayah-captcha</a>. The
+current version is 0.1.0.
+
+<br>&nbsp;<br><h3><a class=none name="dictionary">The AYAH-CAPTCHA dictionary</a></h3>
+
+
+
+<!-- Entry for *PUBLISHER-KEY* -->
+
+<p><br>[Special variable]<br><a class=none name='*publisher-key*'><b>*publisher-key*</b></a>
+<blockquote><br>
+
+Identifies you and your application to the areyouahuman web service.
+
+</blockquote>
+
+<!-- End of entry for *PUBLISHER-KEY* -->
+
+
+<!-- Entry for *SCORING-KEY* -->
+
+<p><br>[Special variable]<br><a class=none name='*scoring-key*'><b>*scoring-key*</b></a>
+<blockquote><br>
+
+Used to retrieve pass or fail results from areyouahuman web service.
+
+</blockquote>
+
+<!-- End of entry for *SCORING-KEY* -->
+
+
+<!-- Entry for *WEB-SERVICE-HOST* -->
+
+<p><br>[Special variable]<br><a class=none name='*web-service-host*'><b>*web-service-host*</b></a>
+<blockquote><br>
+
+The default web service host for the areyouahuman play-thru captcha.
+
+</blockquote>
+
+<!-- End of entry for *WEB-SERVICE-HOST* -->
+
+
+<!-- Entry for HUMAN-P -->
+
+<p><br>[Function]<br><a class=none name='human-p'><b>human-p</b> <i>session-secret <tt>&amp;key</tt> scoring-key host</i> =&gt; <i>result</i></a>
+<blockquote><br>
+
+session-secret should be the value of the parameter session_secret
+submitted by the form containing publisher-html. Returns boolean value
+indicating whether the client passed the captcha test. 
+
+</blockquote>
+
+<!-- End of entry for HUMAN-P -->
+
+
+<!-- Entry for PUBLISHER-HTML -->
+
+<p><br>[Function]<br><a class=none name='publisher-html'><b>publisher-html</b> <i><tt>&amp;key</tt> publisher-key host</i> =&gt; <i>result</i></a>
+<blockquote><br>
+
+Returns HTML snippet to be inserted within the html form to display
+play-thru content. Will pass the parameter session_secret on submit to be
+passed onto the function human-p
+
+</blockquote>
+
+<!-- End of entry for PUBLISHER-HTML -->
+
+
+<!-- Entry for RECORD-CONVERSATION-HTML -->
+
+<p><br>[Function]<br><a class=none name='record-conversation-html'><b>record-conversation-html</b> <i>session-secret <tt>&amp;key</tt> host</i> =&gt; <i>result</i></a>
+<blockquote><br>
+
+Returns the HTML snippet needed to be embedded in the confirmation page
+after a form submission. Once the code loads on the page it will record
+a conversion with our system.
+    session-secret
+       Pass in the value of the hidden input field with id=&#039;session_secret&#039;
+
+
+</blockquote>
+
+<!-- End of entry for RECORD-CONVERSATION-HTML -->
+
+
+<br>&nbsp;<br><h3><a class=none name="ack">Acknowledgements</a></h3>
+
+<p>
+This documentation was prepared with <a href="http://weitz.de/documentation-template/">DOCUMENTATION-TEMPLATE</a>.
+</p>
+<p>
+$Header: /usr/local/cvsrep/documentation-template/output.lisp,v 1.18 2013-01-11 13:45:29 edi Exp $
+<p><a href="http://weitz.de/index.html">BACK TO MY HOMEPAGE</a>
+
+</body>
+</html>
